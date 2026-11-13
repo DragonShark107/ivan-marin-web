@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web oficial de Iván Marín García. Clarinetista profesional, guía en procesos humanos e ingeniero de sonido.">
+    <title>Inicio | Iván Marín García</title>
+    
+    <link rel="icon" type="image/x-icon" href="Imagenes/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDHJ97QS3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GDHJ97QS3Q');
+</script>
+
+<body class="home-body">
+
+    <canvas id="waves-canvas"></canvas>
+
+    <header class="home-header">
+        <div class="brand">Iván Marín García</div>
+        <nav class="nav-principal">
+            <a href="biografia.html" data-es="Biografía" data-en="Biography">Biografía</a>
+            <div class="nav-item dropdown">
+            <a href="actividades.html" class="dropbtn" data-es="Actividades" data-en="Activities">Actividades</a>
+            
+            <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+
+            <div class="dropdown-menu">
+                <a href="actividades.html#acompanamiento" data-es="Acompañamiento Artístico" data-en="Artistic Accompaniment">Acompañamiento Artístico</a>
+                <a href="actividades.html#docencia" data-es="Docencia" data-en="Teaching">Docencia</a>
+                <a href="actividades.html#audio" data-es="Edición & Masterización" data-en="Editing & Mastering">Edición & Masterización</a>
+                <a href="actividades.html#charlas" data-es="Conferencias & Diálogos" data-en="Conferences & Dialogues">Conferencias & Diálogos</a>
+                <a href="actividades.html#boquillas" data-es="Retoque de Boquillas" data-en="Mouthpiece Refacing">Retoque de Boquillas</a>
+            </div>
+        </div>
+            <a href="proyectos.html" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="obras.html" data-es="Obras" data-en="Works">Obras</a>
+            <a href="libro.html" data-es="Libro" data-en="Book">Libro</a>
+            <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <button id="lang-switch" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <main class="home-main">
+        <section class="hero-minimal">
+            <div class="hero-text">
+                <h1 data-es="Música, Presencia & Coherencia" data-en="Music, Presence & Coherence">Música, Presencia & Coherencia</h1>
+                <p data-es="Clarinetista, docente y acompañante en procesos humanos" data-en="Clarinet player, teacher & human process facilitator">Clarinetista, docente y acompañante en procesos humanos</p>
+                <div class="cta-container">
+                    <a href="biografia.html" class="btn-azul" data-es="Saber más sobre mí" data-en="About me">Saber más sobre mí</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <p>&copy; 2026 - Iván Marín García</p>
+        <p class="creador">
+        <span data-es="Creado por " data-en="Created by ">Creado por </span>
+       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=izanvalverde6@gmail.com" target="_blank" class="link-creador">IZANVALVERDE6@GMAIL.COM</a>
+    </p>
+    </footer>
+
+    <script src="index.js"></script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = document.querySelector('.dropbtn');
+    const arrow = document.querySelector('.dropdown-arrow');
+    const menu = document.querySelector('.dropdown-menu');
+
+    if (dropdown && dropbtn && menu) {
+        // Función para abrir/cerrar
+        const toggleMobileMenu = (e) => {
+            if (window.innerWidth <= 900) {
+                // Si el menú no está activo, prevenimos que se vaya a la otra página
+                if (!menu.classList.contains('active')) {
+                    e.preventDefault(); 
+                    e.stopPropagation();
+                    menu.classList.add('active');
+                    if (arrow) arrow.classList.add('active');
+                }
+                // Si YA está activo, el segundo click te llevará a actividades.html
+            }
+        };
+
+        // Click en el texto "Actividades"
+        dropbtn.addEventListener('click', toggleMobileMenu);
+
+        // Click en la flecha
+        if (arrow) {
+            arrow.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                menu.classList.toggle('active');
+                arrow.classList.toggle('active');
+            });
+        }
+
+        // Añade esto dentro de tu script actual:
+const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+
+dropdownLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // Cerramos el menú al hacer clic en una opción
+        menu.classList.remove('active');
+        if (arrow) arrow.classList.remove('active');
+    });
+});
+
+        // Cerrar el menú si el usuario hace click en cualquier otra parte de la pantalla
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                menu.classList.remove('active');
+                if (arrow) arrow.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
+</body>
+</html>

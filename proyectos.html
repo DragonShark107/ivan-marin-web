@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Iván Marín García</title>
+    <link rel="icon" type="image/x-icon" href="Imagenes/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="proyectos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDHJ97QS3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GDHJ97QS3Q');
+</script>
+
+<body class="interna-body">
+
+    <header class="header-interna">
+        <div class="brand"><a href="index.html">Iván Marín García</a></div>
+        <nav class="nav-principal">
+            <a href="biografia.html" data-es="Biografía" data-en="Biography">Biografía</a>
+            <div class="nav-item dropdown">
+                <a href="actividades.html" class="dropbtn" data-es="Actividades" data-en="Activities">Actividades</a>
+                <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                <div class="dropdown-menu">
+                    <a href="actividades.html#acompanamiento" data-es="Acompañamiento Artístico" data-en="Artistic Accompaniment">Acompañamiento Artístico</a>
+                    <a href="actividades.html#docencia" data-es="Docencia" data-en="Teaching">Docencia</a>
+                    <a href="actividades.html#audio" data-es="Edición & Masterización" data-en="Editing & Mastering">Edición & Masterización</a>
+                    <a href="actividades.html#charlas" data-es="Conferencias & Diálogos" data-en="Conferences & Dialogues">Conferencias & Diálogos</a>
+                    <a href="actividades.html#boquillas" data-es="Retoque de Boquillas" data-en="Mouthpiece Refacing">Retoque de Boquillas</a>
+                </div>
+            </div>
+            <a href="proyectos.html" class="active" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="obras.html" data-es="Obras" data-en="Works">Obras</a>
+            <a href="libro.html" data-es="Libro" data-en="Book">Libro</a>
+            <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <button id="lang-switch" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <main class="proyectos-container">
+        <header class="proyectos-header">
+            <h1 data-es="Proyectos" data-en="Projects">Proyectos</h1>
+            <div class="linea-decorativa"></div>
+        </header>
+
+        <div class="proyectos-vertical-list">
+            <article class="proyecto-block">
+                <div class="proyecto-visual">
+                    <img src="Imagenes/THE FIELD.jpeg" alt="Proyecto THE FIELD" data-src-es="Imagenes/THE FIELD.jpeg" data-src-en="Imagenes/THE FIELD_EN.jpeg">
+                </div>
+                <div class="proyecto-contenido">
+                    <p data-es="Música que te atraviesa. Una experiencia sonora creada junto a José Manuel Cancela, Miguel Thomas y Kary Regragui." 
+                       data-en="Music that goes through you. A sonic experience created with José Manuel Cancela, Miguel Thomas, and Kary Regragui.">
+                       Música que te atraviesa. Una experiencia sonora creada junto a José Manuel Cancela, Miguel Thomas y Kary Regragui.
+                    </p>
+                    <a href="the-field.html" class="btn-proyecto" data-es="VER PROYECTO" data-en="VIEW PROJECT">VER PROYECTO</a>
+                </div>
+            </article>
+
+            <article class="proyecto-block">
+                <div class="proyecto-visual">
+                    <img src="Imagenes/SUR A DOS VOCES.jpeg" alt="Proyecto TANGOS">
+                </div>
+                <div class="proyecto-contenido">
+                    <p data-es="Piano y clarinete en diálogo. Una mirada actual sobre el tango y el folklore argentino." 
+                       data-en="Piano and clarinet in dialogue. A contemporary perspective on tango and Argentine folklore.">
+                       Piano y clarinete en diálogo. Una mirada actual sobre el tango y el folklore argentino.
+                    </p>
+                    <a href="sur-a-dos-voces.html" class="btn-proyecto" data-es="VER PROYECTO" data-en="VIEW PROJECT">VER PROYECTO</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="home-footer">
+        <p>&copy; 2026 - Iván Marín García</p>
+        <p class="creador">
+        <span data-es="Creado por " data-en="Created by ">Creado por </span>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=izanvalverde6@gmail.com" target="_blank" class="link-creador">IZANVALVERDE6@GMAIL.COM</a>
+    </p>
+    </footer>
+
+    <script>
+        const langSwitch = document.getElementById('lang-switch');
+        let currentLang = localStorage.getItem('prefLang') || 'es';
+
+       const updateLanguage = (lang) => {
+            // Cambiar textos
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.innerHTML = el.getAttribute(`data-${lang}`);
+            });
+            
+            // Cambiar imágenes
+            document.querySelectorAll('img[data-src-es]').forEach(img => {
+                img.src = img.getAttribute(`data-src-${lang}`);
+            });
+
+            document.title = (lang === 'es') ? "Proyectos | Iván Marín García" : "Projects | Iván Marín García";
+            langSwitch.innerText = lang === 'es' ? 'EN' : 'ES';
+            localStorage.setItem('prefLang', lang);
+        };
+
+        langSwitch.addEventListener('click', () => {
+            currentLang = (currentLang === 'es') ? 'en' : 'es';
+            updateLanguage(currentLang);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdown = document.querySelector('.nav-item.dropdown');
+            const dropbtn = document.querySelector('.dropbtn');
+            const arrow = document.querySelector('.dropdown-arrow');
+            const menu = document.querySelector('.dropdown-menu');
+
+            if (dropdown && dropbtn && menu) {
+                const toggleMobileMenu = (e) => {
+                    if (window.innerWidth <= 900) {
+                        if (!menu.classList.contains('active')) {
+                            e.preventDefault(); 
+                            e.stopPropagation();
+                            menu.classList.add('active');
+                            if (arrow) arrow.classList.add('active');
+                        } 
+                    }
+                };
+
+                dropbtn.addEventListener('click', toggleMobileMenu);
+
+                if (arrow) {
+                    arrow.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        menu.classList.toggle('active');
+                        arrow.classList.toggle('active');
+                    });
+                }
+
+                document.addEventListener('click', (e) => {
+                    if (!dropdown.contains(e.target)) {
+                        menu.classList.remove('active');
+                        if (arrow) arrow.classList.remove('active');
+                    }
+                });
+            }
+            updateLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-es="Actividades | Iván Marín García" data-en="Activities | Iván Marín García">Actividades | Iván Marín García</title>
+    <link rel="icon" type="image/x-icon" href="Imagenes/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="actividades.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDHJ97QS3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GDHJ97QS3Q');
+</script>
+
+<body class="interna-body">
+
+    <header class="header-interna">
+        <div class="brand"><a href="index.html">Iván Marín García</a></div>
+        <nav class="nav-principal">
+            <a href="biografia.html" data-es="Biografía" data-en="Biography">Biografía</a>
+            <a href="actividades.html" class="active" data-es="Actividades" data-en="Activities">Actividades</a>
+            <a href="proyectos.html" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="obras.html" data-es="Obras" data-en="Works">Obras</a>
+            <a href="libro.html" data-es="Libro" data-en="Book">Libro</a>
+            <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <button id="lang-switch" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <section id="acompanamiento" class="section-service">
+        <div class="service-content">
+            <h2 class="titulo-servicio" data-es="Acompañamiento Artístico" data-en="Artistic Guidance">Acompañamiento Artístico</h2>
+            <p data-es="Claridad, profundidad y coherencia en la interpretación" data-en="Clarity, depth, and coherence in interpretation">Claridad, profundidad y coherencia en la interpretación</p>
+            <a href="acompanamiento.html" class="btn-saber-mas" data-es="Saber más" data-en="Read more">Saber más</a>
+        </div>
+        <div class="service-visual"><img src="Imagenes/Clarinete atras.jpeg" alt="Acompañamiento"></div>
+    </section>
+
+    <section id="docencia" class="section-service invert">
+        <div class="service-content">
+            <h2 class="titulo-servicio" data-es="Docencia" data-en="Teaching">Docencia</h2>
+            <p data-es="Sensibilidad, técnica y presencia humana" data-en="Sensitivity, technique, and human presence">Sensibilidad, técnica y presencia humana</p>
+            <a href="docencia.html" class="btn-saber-mas" data-es="Saber más" data-en="Read more">Saber más</a>
+        </div>
+        <div class="service-visual visual-sticky"><img src="Imagenes/Clarinete al frente2.jpeg" alt="Docencia"></div>
+    </section>
+
+    <section id="audio" class="section-service">
+        <div class="service-content">
+            <h2 class="titulo-servicio" data-es="Edición & Masterización" data-en="Editing & Mastering">Edición & Masterización</h2>
+            <p data-es="Coherencia vibracional de grabaciones acústicas" data-en="Vibrational coherence of acoustic recordings">Coherencia vibracional de grabaciones acústicas</p>
+            <a href="audio.html" class="btn-saber-mas" data-es="Saber más" data-en="Read more">Saber más</a>
+        </div>
+        <div class="service-visual visual-especial">
+            <div class="disco-wrapper">
+                <div class="disco-vinilo">
+                    <img src="Imagenes/Disco.png" class="cover-disco" alt="Audio Cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="charlas" class="section-service invert">
+        <div class="service-content">
+            <h2 class="titulo-servicio" data-es="Conferencias & Diálogos" data-en="Conferences & Dialogues">Conferencias & Diálogos</h2>
+            <p data-es="SOBRE PRESENCIA Y RENDIMIENTO" data-en="PRESENCE AND PERFORMANCE">PRESENCIA Y RENDIMIENTO</p>
+            <a href="charlas.html" class="btn-saber-mas" data-es="Saber más" data-en="Read more">Saber más</a>
+        </div>
+        <div class="service-visual"><img src="Imagenes/Foto Sonriendo.jpeg" alt="Charlas"></div>
+    </section>
+
+    <section id="boquillas" class="section-service">
+        <div class="service-content">
+            <h2 class="titulo-servicio" data-es="Retoque de Boquillas" data-en="Mouthpiece Refacing">Retoque de Boquillas</h2>
+            <p data-es="Ajuste artesanal con sensibilidad técnica" data-en="Handcrafted work with technical sensitivity">Ajuste artesanal con sensibilidad técnica</p>
+            <a href="boquillas.html" class="btn-saber-mas" data-es="Saber más" data-en="Read more">Saber más</a>
+        </div>
+        <div class="service-visual"><img src="Imagenes/Boquilla.jpg" alt="Boquillas"></div>
+    </section>
+
+    <footer class="home-footer"><p>&copy; 2026 - IVÁN MARÍN GARCÍA</p>
+    <p class="creador">
+        <span data-es="Creado por " data-en="Created by ">Creado por </span>
+       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=izanvalverde6@gmail.com" target="_blank" class="link-creador">IZANVALVERDE6@GMAIL.COM</a>
+    </p></footer>
+
+    <script>
+        // SCRIPT DE IDIOMA (Simplificado sin toggleInfo ya que no se usa)
+        const langSwitch = document.getElementById('lang-switch');
+        let currentLang = localStorage.getItem('prefLang') || 'es';
+
+        const updateLanguage = (lang) => {
+            document.querySelectorAll('[data-es]').forEach(el => {
+                const content = el.getAttribute(`data-${lang}`);
+                // Si el elemento es un enlace o párrafo normal, cambiamos su texto
+                el.innerText = content;
+            });
+
+            langSwitch.innerText = lang === 'es' ? 'EN' : 'ES';
+            localStorage.setItem('prefLang', lang);
+        };
+
+        langSwitch.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(currentLang);
+            langSwitch.blur();
+            langSwitch.classList.toggle('active');
+        });
+
+        updateLanguage(currentLang);
+    </script>
+</body>
+</html>

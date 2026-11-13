@@ -1,0 +1,233 @@
+/* --- VARIABLES --- */
+:root {
+    --azul-elegante: #007BA7;
+    --azul-glow: rgba(0, 123, 167, 0.4);
+    --negro: #000000;
+    --blanco: #ffffff;
+    --gris-texto: #888888;
+    --fuente-texto: 'Lato', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body.interna-body {
+    background: radial-gradient(circle at top right, #00081a, #000000);
+    background-attachment: fixed;
+    color: var(--blanco);
+    font-family: var(--fuente-texto);
+    overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+.header-interna {
+    position: sticky; top: 0; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 5%; background: rgba(0, 0, 0, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand a { text-decoration: none; color: var(--blanco); letter-spacing: 4px; text-transform: uppercase; font-weight: 300; font-size: clamp(1rem, 1.5vw, 1.2rem); }
+.nav-principal { display: flex; align-items: center; gap: 18px; }
+.nav-principal a { color: var(--blanco); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+.nav-principal a:hover, .nav-principal a.active { color: var(--azul-elegante); }
+
+/* --- DROPDOWN (FIX: HOVER RESTAURADO) --- */
+.nav-item.dropdown { position: relative; display: flex; align-items: center; }
+.dropdown-arrow { font-size: 0.6rem; color: var(--azul-elegante); margin-left: 4px; transition: transform 0.3s; }
+.dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+    background: var(--negro); border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 240px; padding: 10px 0; opacity: 0; visibility: hidden; transition: 0.3s;
+}
+
+/* Solo se despliega al pasar el ratón en PC */
+@media (min-width: 901px) {
+    .nav-item.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
+    .nav-item.dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+}
+
+.dropdown-menu a { display: block; padding: 12px 20px; font-size: 0.7rem !important; text-align: left; color: var(--blanco) !important; text-decoration: none;}
+.dropdown-menu a:hover { background: rgba(0, 123, 167, 0.15); color: var(--azul-elegante) !important; }
+
+/* --- BOTONES (IDIOMA Y WEB) FIX STICKY MÓVIL --- */
+.lang-btn {
+    background: transparent; border: 1px solid var(--azul-elegante); color: var(--azul-elegante);
+    padding: 4px 10px; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; margin-left: 10px; transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+/* Evita que el botón se quede encendido en móvil */
+@media (hover: hover) {
+    .lang-btn:hover { background: var(--azul-elegante); color: #fff; box-shadow: 0 0 15px var(--azul-elegante); }
+}
+
+.lang-btn:active { background: var(--azul-elegante); color: #fff; }
+
+/* --- HERO & MANIFESTO --- */
+.field-hero { padding: 100px 5% 50px; text-align: center; }
+.field-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); letter-spacing: 15px; margin-bottom: 30px; font-weight: 300; }
+.manifesto { font-size: 1.1rem; color: var(--gris-texto); max-width: 850px; margin: 0 auto; line-height: 1.8; text-align: center; }
+.linea-decorativa { width: 60px; height: 1px; background: var(--azul-elegante); margin: 40px auto; }
+
+/* --- TEAM SECTION --- */
+.team-wrapper { max-width: 1100px; margin: 0 auto; padding: 50px 5%; }
+.member-card { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; margin-bottom: 120px; align-items: start; }
+.photo-container { width: 100%; aspect-ratio: 1 / 1.25; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+.photo { width: 100%; height: 100%; object-fit: cover; }
+.video-box { position: relative; padding-bottom: 56.25%; height: 0; border: 1px solid rgba(0, 123, 167, 0.2); margin-top: 20px;}
+.video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.member-text h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--azul-elegante); margin-bottom: 5px; }
+.role { 
+  display: block; 
+  font-size: 0.75rem; 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  color: #fff;
+  margin-bottom: 25px; 
+  
+  /* SOLUCIÓN: Ajusta este valor según cuánto espacio quieras entre líneas */
+  line-height: 1.8; 
+}
+.bio-summary { text-align: justify; margin-bottom: 30px; font-size: 1rem; color: var(--gris-texto); line-height: 1.8; }
+
+/* --- ACCIONES --- */
+.member-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.btn-cv { 
+    display: inline-block; background: transparent; border: 1px solid var(--azul-elegante); color: var(--azul-elegante); 
+    padding: 10px 25px; cursor: pointer; text-transform: uppercase; text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; transition: 0.4s; 
+}
+
+@media (hover: hover) {
+    .btn-cv:hover { background: var(--azul-elegante); color: #fff; box-shadow: 0 0 20px var(--azul-elegante); }
+}
+.btn-cv:active { background: var(--azul-elegante); color: #fff; }
+
+.btn-web { color: var(--gris-texto); text-decoration: none; font-size: 0.8rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+.btn-web:hover { color: var(--azul-elegante); }
+
+/* --- VOLVER ATRÁS --- */
+.back-link-container { text-align: center; padding: 50px 0 120px; }
+.back-link { 
+    color: var(--gris-texto); text-decoration: none; font-size: 0.8rem; 
+    text-transform: uppercase; letter-spacing: 2px; display: inline-flex; align-items: center; gap: 15px; transition: 0.3s;
+}
+.back-link:hover { color: var(--azul-elegante); transform: translateX(-5px); }
+
+/* --- FOOTER --- */
+.home-footer { position: fixed; bottom: 30px; left: 5%; z-index: 100; pointer-events: none; }
+.home-footer p { font-size: 0.65rem; color: var(--gris-texto); text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; }
+
+/* --- MÓVIL --- */
+@media (max-width: 900px) {
+    .header-interna { flex-direction: column; padding: 30px 5%; gap: 20px; }
+    .nav-principal { justify-content: center; flex-wrap: wrap; gap: 15px; width: 100%; }
+
+    /* DESPLIEGUE VERTICAL CENTRADO (LÓGICA BIOGRAFÍA) */
+    .dropdown-menu.active { 
+        display: block !important; opacity: 1 !important; visibility: visible !important; 
+        position: absolute; top: 35px; transform: translateX(-50%); left: 50%; width: 260px;
+        background: var(--negro); border: 1px solid rgba(255,255,255,0.1);
+    }
+    .dropdown-arrow.active { transform: rotate(180deg); }
+
+    .member-card { display: flex; flex-direction: column; gap: 30px; }
+    .member-text { order: 1; }
+    .member-media { order: 2; }
+    .home-footer { position: relative; left: 0; bottom: 0; padding: 40px 0; text-align: center; pointer-events: auto; }
+}
+
+/* Contenedor principal con relación de aspecto 16:9 */
+#video-perfil { 
+    position: relative; 
+    padding-bottom: 56.25%; 
+    height: 0; 
+    border: 1px solid rgba(0, 123, 167, 0.2); 
+    margin-top: 20px;
+    overflow: hidden;
+    background-color: #000; /* Fondo negro por si el video tarda en cargar */
+}
+
+/* Ajuste del video para que llene el contenedor */
+#video-perfil video { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Para que el video no se deforme y cubra todo el espacio */
+}
+
+/* Modificamos el footer para que los elementos se repartan */
+.home-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 5%;
+    right: 5%; /* Añadimos margen derecho */
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between; /* Esto empuja el nombre de Iván a la izquierda y el tuyo a la derecha */
+    align-items: center;
+}
+
+.home-footer p {
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin: 0;
+}
+
+/* Estilos específicos para tu crédito */
+.creador {
+    pointer-events: auto; /* IMPORTANTE: Para que el enlace sea clickable */
+    text-align: right;
+}
+
+.link-creador {
+    color: var(--gris); /* O puedes usar var(--azul-maestro) si quieres que resalte */
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+.link-creador:hover {
+    color: var(--azul-elegante); /* Se ilumina al pasar el ratón */
+    opacity: 1;
+}
+
+/* Ajuste para móviles: uno encima de otro */
+@media (max-width: 900px) {
+    .home-footer {
+        position: relative;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 30px 0;
+        left: 0;
+        width: 100%;
+    }
+    .creador {
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    /* ... otros estilos que ya tienes ... */
+
+    .field-hero h1 {
+        font-size: 2.8rem !important;  /* Tamaño grande pero controlado */
+        letter-spacing: 5px !important; /* Reducimos el espacio excesivo */
+        text-indent: 5px;              /* Compensamos para centrar la última letra */
+        padding: 0 10px;
+        line-height: 1.1;
+        width: 100%;
+        display: block;
+    }
+
+    .field-hero {
+        padding: 60px 5% 30px; /* Reducimos el aire superior en móviles */
+    }
+}

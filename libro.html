@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro | Iván Marín García</title>
+    <link rel="icon" type="image/x-icon" href="Imagenes/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="libro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDHJ97QS3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GDHJ97QS3Q');
+</script>
+
+<body class="interna-body">
+
+    <header class="header-interna">
+        <div class="brand"><a href="index.html">Iván Marín García</a></div>
+        <nav class="nav-principal">
+            <a href="biografia.html" data-es="Biografía" data-en="Biography">Biografía</a>
+            <div class="nav-item dropdown">
+                <a href="actividades.html" class="dropbtn" data-es="Actividades" data-en="Activities">Actividades</a>
+                <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                <div class="dropdown-menu">
+                    <a href="actividades.html#acompanamiento" data-es="Acompañamiento Artístico" data-en="Artistic Accompaniment">Acompañamiento Artístico</a>
+                    <a href="actividades.html#docencia" data-es="Docencia" data-en="Teaching">Docencia</a>
+                    <a href="actividades.html#audio" data-es="Edición & Masterización" data-en="Editing & Mastering">Edición & Masterización</a>
+                    <a href="actividades.html#charlas" data-es="Conferencias & Diálogos" data-en="Conferences & Dialogues">Conferencias & Diálogos</a>
+                    <a href="actividades.html#boquillas" data-es="Retoque de Boquillas" data-en="Mouthpiece Refacing">Retoque de Boquillas</a>
+                </div>
+            </div>
+            <a href="proyectos.html" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="obras.html" data-es="Obras" data-en="Works">Obras</a>
+            <a href="libro.html" class="active" data-es="Libro" data-en="Book">Libro</a>
+            <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <button id="lang-switch" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <main class="container-proyectos">
+        <section class="portada-container">
+            <img src="Imagenes/Portada libro.jpeg" alt="Portada Libro" class="img-libro">
+            <p class="txt-provisional-gris" data-es="Portada conceptual — provisional" data-en="Conceptual cover — provisional">Portada conceptual — provisional</p>
+        </section>
+
+        <section class="proyecto-content">
+            <div class="texto-unificado-container">
+                <div class="texto-unificado" id="contenedor-texto">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <p>&copy; 2026 - IVÁN MARÍN GARCÍA</p>
+        <p class="creador">
+        <span data-es="Creado por " data-en="Created by ">Creado por </span>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=izanvalverde6@gmail.com" target="_blank" class="link-creador">IZANVALVERDE6@GMAIL.COM</a>
+    </p>
+    </footer>
+
+    <script>
+    const langSwitch = document.getElementById('lang-switch');
+    let currentLang = localStorage.getItem('prefLang') || 'es';
+
+    const updateLanguage = (lang) => {
+        const contenedor = document.getElementById('contenedor-texto');
+        
+        const textoEs = `
+            Hay una música que no se escucha, pero sostiene todo lo que somos.<br><br>
+            Una vibración interna desde la que pensamos, creamos, enseñamos, lideramos y nos relacionamos.<br><br>
+            Este libro nace de una forma de habitar la vida — una actitud, una confianza, un mecanismo interno que convierte cada experiencia en aprendizaje y cada intención en resultado. No porque las circunstancias fueran siempre favorables, sino porque había algo operando desde dentro que siempre encontraba el camino.<br><br>
+            Durante décadas lo viví sin nombrarlo. Fue la mirada de un amigo la que lo hizo visible: <i>«Todo lo que tocas llega a una profundidad diferente. ¿Sabes por qué?»</i><br><br>
+            Esa pregunta se convirtió en este libro.<br><br>
+            VIBRAR MÁS ALTO explora ese mecanismo: presencia, coherencia interna, la calidad vibracional que determina cada acto humano. Música, conciencia, cuerpo, ciencia y práctica viva — una mirada directa a lo que realmente mueve la vida desde dentro.<br><br>
+            Hay momentos en la vida en los que no buscamos más información.<br>
+            Buscamos frecuencia.<br>
+            Buscamos recordar algo que ya sabemos, pero que el ruido del mundo nos hizo olvidar.<br><br>
+            No aprendes algo nuevo.<br>
+            Recuerdas quién siempre fuiste.<br>
+            Vislumbras —con suavidad y sin drama— la mecánica del juego que estamos viviendo, y desde esa comprensión, algo cambia para siempre.<br><br>
+            Ya no buscas.<br>
+            Te detienes.<br>
+            Te reconectas.<br><br>
+            Y descubre que todo lo que necesitabas estaba aquí, en este momento, esperando que dejaras de correr para verlo.<br><br>
+            La maquinaria ya está dentro de ti.<br>
+            No hay nada que adquirir.<br>
+            Solo algo que recordar — y un momento en el que hacerlo: este.<br><br>
+            No es autoayuda.<br>
+            No es espiritualidad convencional.<br>
+            Tiene raíces en la neurociencia, la física cuántica y la investigación del HeartMath Institute — y se siente en el cuerpo antes de entenderse con la mente.<br>
+            No te añade nada. Te devuelve todo.<br><br></center>
+            <span class="cita-final"><center>«La vibración más alta no se alcanza. Se recuerda».</center></span>
+        `;
+
+        const textoEn = `
+           There is a music you cannot hear, yet it holds everything we are.<br><br>
+            An inner vibration from which we think, create, teach, lead, and relate.<br><br>
+            This book was born from a way of inhabiting life — an attitude, a trust, an inner mechanism that turns every experience into learning and every intention into outcome. Not because circumstances were always favorable, but because something within was always finding the way.<br><br>
+            For decades I lived it without naming it. It was a friend's observation that made it visible: <i>“Everything you touch reaches a different depth. Do you know why?”</i><br><br>
+            That question became this book.<br><br>
+            VIBRATE HIGHER explores that mechanism: presence, inner coherence, the vibrational quality that shapes every human act. Music, consciousness, body, science, and lived practice — a direct look at what truly moves life from within.<br><br>
+            There are moments in life when we are not looking for more information.<br>
+            We are looking for frequency.<br>
+            We are looking to remember something we already know, but that the noise of the world made us forget.<br><br>
+            You do not learn something new.<br>
+            You remember who you have always been.<br>
+            You glimpse — gently, without drama — the mechanics of the game we are living, and from that understanding, something shifts forever.<br><br>
+            You stop searching.<br>
+            You pause.<br>
+            You reconnect.<br><br>
+            And you discover that everything you needed was already here, in this moment, waiting for you to stop running long enough to see it.<br><br>
+            The machinery is already within you.<br>
+            There is nothing to acquire.<br>
+            Only something to remember — and a moment in which to do it: this one.<br><br>
+            It is not self-help.<br>
+            It is not conventional spirituality.<br>
+            It has roots in neuroscience, quantum physics, and HeartMath Institute research — and it is felt in the body before it is understood by the mind.<br>
+            It adds nothing to you. It gives everything back.<br><br></center>
+            <span class="cita-final"><center>“The highest vibration is not reached. It is remembered.”</center></span>
+        `;
+
+        contenedor.innerHTML = (lang === 'es') ? textoEs : textoEn;
+        
+        document.querySelectorAll('[data-es]').forEach(el => {
+            if(el.id !== 'contenedor-texto') {
+                el.innerHTML = el.getAttribute(`data-${lang}`);
+            }
+        });
+
+        document.title = (lang === 'es') ? "Libro | Iván Marín García" : "Book | Iván Marín García";
+        langSwitch.innerText = lang === 'es' ? 'EN' : 'ES';
+        localStorage.setItem('prefLang', lang);
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const dropdown = document.querySelector('.nav-item.dropdown');
+        const dropbtn = document.querySelector('.dropbtn');
+        const arrow = document.querySelector('.dropdown-arrow');
+        const menu = document.querySelector('.dropdown-menu');
+
+        if (dropdown && dropbtn && menu) {
+            const toggleMobileMenu = (e) => {
+                if (window.innerWidth <= 900) {
+                    if (!menu.classList.contains('active')) {
+                        e.preventDefault(); 
+                        e.stopPropagation();
+                        menu.classList.add('active');
+                        if (arrow) arrow.classList.add('active');
+                    }
+                }
+            };
+
+            dropbtn.addEventListener('click', toggleMobileMenu);
+
+            if (arrow) {
+                arrow.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    menu.classList.toggle('active');
+                    arrow.classList.toggle('active');
+                });
+            }
+
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target) && !langSwitch.contains(e.target)) {
+                    menu.classList.remove('active');
+                    if (arrow) arrow.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    langSwitch.addEventListener('click', () => {
+        currentLang = (currentLang === 'es') ? 'en' : 'es';
+        updateLanguage(currentLang);
+    });
+
+    updateLanguage(currentLang);
+</script>
+</body>
+</html>

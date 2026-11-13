@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-es="Edición & Masterización | Iván Marín García" data-en="Editing & Mastering | Iván Marín García">Edición & Masterización | Iván Marín García</title>
+    <link rel="icon" type="image/x-icon" href="Imagenes/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="actividades.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDHJ97QS3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GDHJ97QS3Q');
+</script>
+
+<body class="interna-body">
+    <header class="header-interna">
+        <div class="brand"><a href="index.html">Iván Marín García</a></div>
+        <nav class="nav-principal">
+            <a href="biografia.html" data-es="Biografía" data-en="Biography">Biografía</a>
+            <a href="actividades.html" class="active" data-es="Actividades" data-en="Activities">Actividades</a>
+            <a href="proyectos.html" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="obras.html" data-es="Obras" data-en="Works">Obras</a>
+            <a href="libro.html" data-es="Libro" data-en="Book">Libro</a>
+            <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <button id="lang-switch" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <section class="section-service info-abierta">
+        <div class="service-content">
+            <h2 class="titulo-servicio" data-es="Edición & Masterización" data-en="Editing & Mastering">Edición & Masterización</h2>
+            <div class="texto-detallado" 
+                data-es="<p>Realiza trabajos de edición y masterización con un enfoque minucioso y profundamente musical, cuidando cada detalle para lograr un resultado claro, equilibrado y fiel a la intención del intérprete. Su experiencia como clarinetista en el mundo sinfónico al más alto nivel, unida a un oído especialmente sensible, le ha llevado a ser conocido por algunos colegas como “el Doctor del clarinete”. Desde esa combinación de precisión técnica y sensibilidad artística, aborda el sonido con una atención excepcional, ajustando cada elemento con criterio y profundidad.</p><br><p>Entre los proyectos recientes destaca la edición y masterización del CD Ecos del Alma, del clarinetista Manuel Gómez. Fue un trabajo realizado íntegramente a distancia, gracias a una comunicación constante y a un proceso de escucha compartida que permitió tomar decisiones conjuntas sin necesidad de coincidir físicamente. Debajo de esta descripción se incluye un enlace a uno de los temas del álbum.</p>"
+                data-en="<p>He carries out editing and mastering work with a meticulous and deeply musical approach, taking care of every detail to achieve a result that is clear, balanced, and faithful to the performer's intention. His experience as a clarinetist in the symphonic world at the highest level, together with an especially sensitive ear, has led him to be known by some colleagues as 'the Clarinet Doctor'. From this combination of technical precision and artistic sensitivity, he approaches sound with exceptional attention, adjusting each element with judgment and depth.</p><br><p>Among recent projects, the editing and mastering of the CD Ecos del Alma by clarinetist Manuel Gómez stands out. It was a project carried out entirely remotely, thanks to constant communication and a shared listening process that allowed for joint decision-making without the need to meet physically. Below this description is a link to one of the tracks from the album.</p>">
+            </div>
+            <div class="video-container-extra">
+                <iframe src="https://www.youtube.com/embed/6LP7qZ15ql8" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="back-link-container">
+            <a href="actividades.html#audio" class="back-link">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                <span data-es="Volver a Actividades" data-en="Back to Activities">Volver a Actividades</span>
+            </a>
+        </div>
+        </div>
+    </section>
+
+    <footer class="home-footer"><p>&copy; 2026 - IVÁN MARÍN GARCÍA</p>
+    <p class="creador">
+        <span data-es="Creado por " data-en="Created by ">Creado por </span>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=izanvalverde6@gmail.com" target="_blank" class="link-creador">IZANVALVERDE6@GMAIL.COM</a>
+    </p></footer>
+
+    <script>
+        const langSwitch = document.getElementById('lang-switch');
+        let currentLang = localStorage.getItem('prefLang') || 'es';
+        const updateLanguage = (lang) => {
+            document.querySelectorAll('[data-es]').forEach(el => {
+                const content = el.getAttribute(`data-${lang}`);
+                if (el.classList.contains('texto-detallado')) el.innerHTML = content;
+                else el.innerText = content;
+            });
+            langSwitch.innerText = lang === 'es' ? 'EN' : 'ES';
+            localStorage.setItem('prefLang', lang);
+        };
+        langSwitch.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(currentLang);
+        });
+        updateLanguage(currentLang);
+    </script>
+</body>
+</html>

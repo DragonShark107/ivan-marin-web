@@ -1,0 +1,564 @@
+/* --- VARIABLES DE DISEÑO --- */
+:root {
+    --azul-maestro: #1A4C8B;   
+    --azul-presencia: #2F6FA3; 
+    --azul-tecnico: #0F3A63;   
+    --azul-glow: rgba(26, 76, 139, 0.4);
+
+    --negro: #000000;
+    --negro-suave: #111111;
+    --blanco: #ffffff;
+    --gris-texto: #888888;
+    --fuente-texto: 'Lato', sans-serif;
+}
+
+/* --- RESET GENERAL --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body.interna-body {
+    background: radial-gradient(circle at top right, #00081a, #000000);
+    background-attachment: fixed;
+    color: var(--blanco);
+    font-family: var(--fuente-texto);
+    line-height: 1.8;
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+.header-interna {
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 40px 5%; 
+    background: rgba(0,0,0,0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.brand a { 
+    text-decoration: none; 
+    color: var(--blanco); 
+    font-family: var(--fuente-texto); 
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 300; 
+    letter-spacing: 4px; 
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* --- NAVEGACIÓN Y DROPDOWN (IGUAL AL INDEX) --- */
+.nav-principal { 
+    display: flex; 
+    align-items: center; 
+    gap: 18px; /* Espacio uniforme entre botones */
+}
+
+.nav-item.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-principal a {
+    font-family: var(--fuente-texto);
+    color: var(--blanco); 
+    text-decoration: none; 
+    font-size: 0.75rem;
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    transition: all 0.3s ease;
+}
+
+.nav-principal a:hover, 
+.nav-principal a.active {
+    color: var(--azul-maestro) !important;
+}
+
+.dropdown-arrow {
+    font-size: 0.6rem;
+    color: var(--azul-maestro);
+    margin-left: 4px; /* Pegado al texto para evitar huecos */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--negro);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 240px;
+    padding: 10px 0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 0.7rem !important;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(26, 76, 139, 0.15);
+    color: var(--azul-maestro) !important;
+}
+
+/* Efectos Hover Escritorio */
+@media (min-width: 901px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(5px);
+    }
+    .nav-item.dropdown:hover .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+}
+
+/* --- REPRODUCTOR DE AUDIO --- */
+.audio-player {
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+    background: rgba(255,255,255,0.05); 
+    padding: 8px 20px;
+    border-radius: 50px; 
+    border: 1px solid rgba(26, 76, 139, 0.3);
+}
+
+#play-pause { 
+    background: none; 
+    border: none; 
+    color: var(--azul-maestro); 
+    cursor: pointer; 
+    font-size: 1rem;
+}
+
+.track-info { display: flex; flex-direction: column; }
+
+.track-name { 
+    font-size: 0.55rem; 
+    color: var(--gris-texto); 
+    white-space: nowrap; 
+    overflow: hidden; 
+    max-width: 150px; 
+    text-overflow: ellipsis; 
+}
+
+.progress-container { 
+    width: 60px; 
+    height: 2px; 
+    background: #222; 
+    position: relative; 
+    margin-top: 4px; 
+}
+
+.progress-bar { 
+    height: 100%; 
+    background: var(--azul-maestro); 
+    width: 0%; 
+    transition: 0.3s; 
+}
+
+/* --- BOTÓN DE IDIOMA --- */
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--azul-maestro);
+    color: var(--blanco);
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+/* Reemplaza tu actual .lang-btn:hover por esto: */
+@media (hover: hover) and (pointer: fine) {
+    .lang-btn:hover {
+        background: var(--azul-maestro);
+        color: #fff;
+        box-shadow: 0 0 15px var(--azul-maestro);
+    }
+}
+
+/* Para que en el móvil haga un "destello" rápido al tocarlo pero se apague al soltar: */
+.lang-btn:active {
+    background: var(--azul-maestro);
+    color: #fff;
+}
+
+/* --- CONTENIDO BIOGRAFÍA --- */
+.container-bio { padding: 80px 5% 120px 5%; max-width: 1400px; margin: 0 auto; }
+.bio-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.bio-image-side { position: sticky; top: 130px; }
+.img-frame { 
+    width: 100%; border: 1px solid rgba(255,255,255,0.1); 
+    background: var(--negro-suave); overflow: hidden;
+}
+
+.img-frame img { 
+    width: 100%; height: auto; display: block; 
+    filter: grayscale(100%); 
+    transition: filter 0.6s ease, transform 0.6s ease; 
+}
+
+.img-frame:hover img { 
+    filter: grayscale(0%); 
+    transform: scale(1.03); 
+}
+
+.bio-quote { 
+    margin-top: 30px; 
+    border-left: 3px solid var(--azul-presencia); 
+    padding-left: 20px; 
+    font-style: italic; 
+    color: var(--gris-texto); 
+}
+
+.titulo-servicio {
+    font-family: var(--fuente-texto); 
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 300; 
+    letter-spacing: 6px; 
+    text-transform: uppercase;
+    color: var(--azul-maestro); 
+    margin-bottom: 15px; 
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+}
+
+.bio-block { margin-bottom: 50px; }
+.bio-block p { color: #ddd; font-weight: 300; font-size: 1.1rem; text-align: justify; }
+
+.btn-pdf {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid var(--azul-maestro);
+    color: var(--azul-maestro);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+/* --- ESTADO BASE (Móvil) --- */
+.bio-action {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    /* Centrado en móvil */
+    justify-content: center; 
+}
+
+/* --- AJUSTE PARA PC (Pantallas grandes) --- */
+@media (min-width: 901px) {
+    .bio-action {
+        /* Vuelve a la izquierda en PC */
+        justify-content: flex-start;
+        /* El gap que te gustaba para PC */
+        gap: 15px; 
+        margin-top: 20px;
+    }
+}
+
+/* --- ESTILO DE LOS BOTONES --- */
+.btn-pdf {
+    min-width: 180px;
+    text-align: center;
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid var(--azul-maestro);
+    color: var(--azul-maestro);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+.btn-pdf:hover {
+    background: var(--azul-maestro);
+    color: var(--blanco);
+    box-shadow: 0 0 20px var(--azul-glow);
+    transform: translateY(-3px);
+}
+
+/* --- FOOTER --- */
+.home-footer { 
+    position: fixed; bottom: 20px; left: 5%; z-index: 100; pointer-events: none;
+}
+.home-footer p { font-size: 0.7rem; color: var(--gris-texto); text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
+
+/* --- RESPONSIVE UNIFICADO --- */
+@media (max-width: 900px) {
+    .header-interna { 
+        flex-direction: column; 
+        padding: 30px 5%; 
+        gap: 20px; 
+    }
+    
+    .nav-principal { 
+        justify-content: center; 
+        flex-wrap: wrap; 
+        width: 100%; 
+        gap: 15px; 
+    }
+
+    /* Lógica de menú activo para móvil (Script) */
+    .dropdown-menu.active {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(-50%) translateY(0) !important;
+        position: absolute;
+        top: 35px;
+    }
+
+    .dropdown-arrow.active {
+        transform: rotate(180deg);
+    }
+    
+    .bio-wrapper { grid-template-columns: 1fr; }
+    .bio-image-side { position: relative; top: 0; margin-bottom: 40px; }
+    
+    .home-footer { 
+        position: relative; 
+        text-align: center; 
+        pointer-events: auto; 
+        bottom: 20px; 
+        left: 0; 
+        width: 100%; 
+        padding: 20px 0; 
+    }
+}
+
+/* --- ESTILOS DE NOVEDAD (AUDIO) --- */
+
+.novedad-link {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.novedad-link:hover {
+    transform: scale(1.02);
+}
+
+.badge-novedad {
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    background: var(--azul-maestro);
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    z-index: 10;
+    box-shadow: 0 0 20px var(--azul-glow); /* Efecto de destaque solicitado */
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+/* Efecto de pulsación suave para llamar la atención */
+@keyframes pulse-novedad {
+    0% { box-shadow: 0 0 10px var(--azul-glow); }
+    50% { box-shadow: 0 0 25px var(--azul-maestro); }
+    100% { box-shadow: 0 0 10px var(--azul-glow); }
+}
+
+.badge-novedad {
+    animation: pulse-novedad 2s infinite;
+}
+
+/* Ajuste de la imagen para que se note que es clickable */
+.img-frame {
+    cursor: pointer;
+    position: relative;
+}
+
+/* --- NUEVO ESTILO NOVEDAD (LITERARIO) --- */
+
+.novedad-literaria-link {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 30px; /* Espacio para que respire antes de la foto */
+    transition: all 0.4s ease;
+}
+
+.novedad-separador-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.novedad-linea {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2); /* Línea fina */
+}
+
+.novedad-aviso-texto {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: var(--blanco);
+    padding: 16px 0; /* Espaciado 16px arriba y abajo */
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Efectos de interacción */
+.novedad-literaria-link:hover .novedad-linea {
+    background-color: var(--azul-maestro);
+    box-shadow: 0 0 10px var(--azul-glow);
+}
+
+.novedad-literaria-link:hover .novedad-aviso-texto {
+    text-shadow: 0 0 15px var(--azul-glow);
+}
+
+/* Ajuste para móviles */
+@media (max-width: 900px) {
+    .novedad-aviso-texto {
+        font-size: 19px;
+        letter-spacing: 2px;
+        padding: 12px 0;
+    }
+}
+
+/* Estilo heredado de THE FIELD para el título */
+.glitch-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.manifesto {
+    font-size: 1.15rem;
+    color: var(--gris-texto);
+    max-width: 900px;
+    margin: 20px auto 0;
+    line-height: 1.8;
+    text-align: center;
+    font-weight: 300;
+}
+
+.linea-decorativa {
+    width: 80px;
+    height: 1px;
+    background: var(--azul-maestro);
+    margin: 40px auto;
+}
+
+/* Ajuste para que el botón de biografía se vea bien centrado */
+.bio-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Modificamos el footer para que los elementos se repartan */
+.home-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 5%;
+    right: 5%; /* Añadimos margen derecho */
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between; /* Esto empuja el nombre de Iván a la izquierda y el tuyo a la derecha */
+    align-items: center;
+}
+
+.home-footer p {
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin: 0;
+}
+
+/* Estilos específicos para tu crédito */
+.creador {
+    pointer-events: auto; /* IMPORTANTE: Para que el enlace sea clickable */
+    text-align: right;
+}
+
+.link-creador {
+    color: var(--gris); /* O puedes usar var(--azul-maestro) si quieres que resalte */
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+.link-creador:hover {
+    color: var(--azul-maestro); /* Se ilumina al pasar el ratón */
+    opacity: 1;
+}
+
+/* Ajuste para móviles: uno encima de otro */
+@media (max-width: 900px) {
+    .home-footer {
+        position: relative;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 30px 0;
+        left: 0;
+        width: 100%;
+    }
+    .creador {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .glitch-text, .field-hero h1 {
+        /* Usamos clamp para que el tamaño sea dinámico según el ancho de la pantalla */
+        /* El 8vw hace que el texto se encoja si la pantalla es muy estrecha */
+        font-size: clamp(1.8rem, 8vw, 2.8rem) !important; 
+        
+        letter-spacing: 2px !important; 
+        text-indent: 2px; /* Centrado óptico */
+        line-height: 1.2;
+        display: block;
+        padding: 0 10px;
+        
+        /* Evitamos que las palabras se rompan a la mitad */
+        word-break: keep-all; 
+        overflow-wrap: normal;
+        white-space: normal; 
+    }
+}

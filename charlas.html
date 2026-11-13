@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-es="Conferencias & Diálogos | Iván Marín García" data-en="Conferences & Dialogues | Iván Marín García">Conferencias & Diálogos | Iván Marín García</title>
+    <link rel="icon" type="image/x-icon" href="Imagenes/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="actividades.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDHJ97QS3Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GDHJ97QS3Q');
+</script>
+
+<body class="interna-body">
+    <header class="header-interna">
+        <div class="brand"><a href="index.html">Iván Marín García</a></div>
+        <nav class="nav-principal">
+            <a href="biografia.html" data-es="Biografía" data-en="Biography">Biografía</a>
+            <a href="actividades.html" class="active" data-es="Actividades" data-en="Activities">Actividades</a>
+            <a href="proyectos.html" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="obras.html" data-es="Obras" data-en="Works">Obras</a>
+            <a href="libro.html" data-es="Libro" data-en="Book">Libro</a>
+            <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+            <button id="lang-switch" class="lang-btn">EN</button>
+        </nav>
+    </header>
+
+    <section class="section-service invert info-abierta">
+        <div class="service-content">
+            <h2 class="titulo-servicio" data-es="Conferencias & Diálogos" data-en="Conferences & Dialogues">Conferencias & Diálogos</h2>
+            <div class="texto-detallado" 
+                data-es="<p>En los últimos años ha compartido reflexiones con estudiantes de música a través de conferencias centradas en la relación entre estado interno, rendimiento y percepción. En ellas aborda temas como el funcionamiento del campo electromagnético del corazón, la gestión del ego, el miedo escénico y ciertos experimentos de la física cuántica que ayudan a comprender cómo la atención, la coherencia y la calidad del pensamiento influyen en la interpretación musical. Son encuentros diseñados para ofrecer claridad, herramientas prácticas y una comprensión más amplia del proceso artístico.</p><br><p>Paralelamente, impulsa espacios de diálogo con profesores, equipos directivos, educadores, jefes de empresa y grupos interesados en explorar nuevas formas de pensar y relacionarse con su trabajo. Estos encuentros no siguen un formato expositivo, sino conversacional: se construyen desde la curiosidad, la escucha y el intercambio honesto. A partir de ese diálogo, propone alternativas sencillas para mejorar el rendimiento, cultivar responsabilidad individual, comprender el papel del ego y explorar maneras de funcionar desde un lugar más coherente y presente.</p>"
+                data-en="<p>In recent years, he has shared reflections with music students through conferences focused on the relationship between internal state, performance, and perception. In them, he addresses topics such as the functioning of the heart's electromagnetic field, ego management, stage fright, and certain experiments in quantum physics that help us understand how attention, coherence, and the quality of thought influence musical interpretation. These meetings are designed to offer clarity, practical tools, and a broader understanding of the artistic process.</p><br><p>Parallel to this, he promotes spaces for dialogue with teachers, management teams, educators, business leaders, and groups interested in exploring new ways of thinking and relating to their work. These encounters do not follow an expository format, but rather a conversational one: they are built from curiosity, listening, and honest exchange. From this dialogue, he proposes simple alternatives to improve performance, cultivate individual responsibility, understand the role of the ego, and explore ways to function from a more coherent and present place.</p>">
+            </div>
+            <br><p></p><br>
+            <div class="back-link-container">
+            <a href="actividades.html#charlas" class="back-link">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                <span data-es="Volver a Actividades" data-en="Back to Activities">Volver a Actividades</span>
+            </a>
+        </div>
+        </div>
+    </section>
+
+    <footer class="home-footer"><p>&copy; 2026 - IVÁN MARÍN GARCÍA</p>
+    <p class="creador">
+        <span data-es="Creado por " data-en="Created by ">Creado por </span>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=izanvalverde6@gmail.com" target="_blank" class="link-creador">IZANVALVERDE6@GMAIL.COM</a>
+    </p></footer>
+
+    <script>
+        const langSwitch = document.getElementById('lang-switch');
+        let currentLang = localStorage.getItem('prefLang') || 'es';
+        const updateLanguage = (lang) => {
+            document.querySelectorAll('[data-es]').forEach(el => {
+                const content = el.getAttribute(`data-${lang}`);
+                if (el.classList.contains('texto-detallado')) el.innerHTML = content;
+                else el.innerText = content;
+            });
+            langSwitch.innerText = lang === 'es' ? 'EN' : 'ES';
+            localStorage.setItem('prefLang', lang);
+        };
+        langSwitch.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(currentLang);
+        });
+        updateLanguage(currentLang);
+    </script>
+</body>
+</html>

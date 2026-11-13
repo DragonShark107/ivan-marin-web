@@ -1,0 +1,347 @@
+/* --- VARIABLES DE DISEÑO --- */
+:root {
+    --azul-elegante: #007BA7; 
+    --negro: #000000;
+    --blanco: #ffffff;
+    --gris-texto: #888888;
+    --fuente-texto: 'Lato', sans-serif;
+}
+
+/* --- RESET GENERAL --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* --- FONDO ANIMADO (WAVES) --- */
+#waves-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--negro);
+}
+
+.home-body {
+    height: 100vh;
+    overflow: auto;
+    font-family: var(--fuente-texto); 
+    color: var(--blanco);
+    background-color: var(--negro);
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+.home-header {
+    position: absolute;
+    top: 0; 
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 5%;
+}
+
+.brand { 
+    font-family: var(--fuente-texto); 
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 300; 
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blanco); 
+    text-shadow: 0 0 10px rgba(0, 123, 167, 0.2);
+    position: relative;
+    left: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* --- ADAPTACIÓN SEGÚN TAMAÑO DE PANTALLA --- */
+
+/* 1. Modo Portátil (Pantallas entre 901px y 1366px) */
+@media (min-width: 901px) and (max-width: 1366px) {
+    .brand {
+        letter-spacing: 8px;   /* Letras un poco más juntas para ganar sitio */
+        left: 40px;            /* Desplazamiento seguro que no pisa el menú */
+        font-size: 0.9rem;
+    }
+    .nav-principal {
+        gap: 12px;             /* Menú un poco más compacto */
+    }
+}
+
+/* 2. Modo Pantalla Grande / Monitor (Más de 1367px) */
+@media (min-width: 1367px) {
+    .brand {
+        letter-spacing: 15px; 
+        left: 243px;         /* Tu posición original para pantallas grandes */
+    }
+    .nav-principal {
+        gap: 18px;
+    }
+}
+
+.nav-principal {
+    display: flex;
+    align-items: center; 
+}
+
+/* Contenedor del dropdown */
+.nav-item.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-principal a {
+    font-family: var(--fuente-texto); 
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.nav-principal a:hover, .nav-principal a.active {
+    color: var(--azul-elegante);
+}
+
+/* --- ESTILOS DEL DROPDOWN --- */
+
+.dropdown-arrow {
+    font-size: 0.6rem;
+    color: var(--azul-elegante);
+    margin-left: 4px; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%; 
+    transform: translateX(-50%) translateY(10px);
+    background: var(--negro);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 240px;
+    padding: 10px 0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 0.7rem !important;
+    color: var(--blanco) !important;
+    text-align: left;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(0, 123, 167, 0.15);
+    color: var(--azul-elegante) !important;
+}
+
+/* Mostrar al pasar el ratón en PC */
+@media (min-width: 901px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(5px);
+    }
+    .nav-item.dropdown:hover .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+}
+
+/* --- ADAPTACIÓN MÓVIL --- */
+@media (max-width: 900px) {
+    .home-header {
+        flex-direction: column;
+        padding: 30px 5%;
+        gap: 20px;
+    }
+    
+    .nav-principal {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .dropdown-menu.active {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(-50%) translateY(0) !important;
+        position: absolute;
+        top: 35px;
+    }
+
+    .dropdown-arrow.active {
+        transform: rotate(180deg);
+    }
+}
+
+/* --- BOTÓN DE IDIOMA --- */
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--azul-elegante);
+    color: var(--blanco);
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .lang-btn:hover {
+        background: var(--azul-elegante);
+        color: #fff;
+        box-shadow: 0 0 15px var(--azul-elegante);
+    }
+}
+
+.lang-btn:active {
+    background: var(--azul-elegante);
+    color: #fff;
+}
+
+/* --- HERO SECTION --- */
+.hero-minimal {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    font-family: var(--fuente-texto); 
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-weight: 300; 
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    margin-bottom: 20px;
+    color: var(--blanco);
+}
+
+.hero-text p {
+    font-family: var(--fuente-texto);
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: var(--gris-texto);
+}
+
+.btn-azul {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid var(--azul-elegante);
+    color: var(--azul-elegante);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: 0.4s;
+    text-transform: uppercase;
+}
+
+.btn-azul:hover {
+    background: var(--azul-elegante);
+    color: var(--blanco);
+    box-shadow: 0 0 25px var(--azul-elegante);
+}
+
+
+/* --- SCROLL MARGIN --- */
+.section-service, #acompanamiento, #docencia, #audio, #charlas, #boquillas {
+    scroll-margin-top: 100px; 
+}
+
+/* Modificamos el footer para que los elementos se repartan */
+.home-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 5%;
+    right: 5%; /* Añadimos margen derecho */
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between; /* Esto empuja el nombre de Iván a la izquierda y el tuyo a la derecha */
+    align-items: center;
+}
+
+.home-footer p {
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin: 0;
+}
+
+/* Estilos específicos para tu crédito */
+.creador {
+    pointer-events: auto; /* IMPORTANTE: Para que el enlace sea clickable */
+    text-align: right;
+}
+
+.link-creador {
+    color: var(--gris); /* O puedes usar var(--azul-maestro) si quieres que resalte */
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+.link-creador:hover {
+    color: var( --azul-elegante); /* Se ilumina al pasar el ratón */
+    opacity: 1;
+}
+
+/* Ajuste para móviles: uno encima de otro */
+@media (max-width: 900px) {
+    .home-footer {
+        position: fixed; /* Lo volvemos a fijar */
+        bottom: 15px;    /* Distancia del borde inferior */
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        pointer-events: auto;
+        z-index: 100;
+    }
+
+    .home-body {
+        height: 100vh;
+        overflow: hidden; /* Bloquea el deslizamiento */
+    }
+
+    .creador {
+        text-align: center;
+    }
+}

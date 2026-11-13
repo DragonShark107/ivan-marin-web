@@ -1,0 +1,172 @@
+/* --- VARIABLES --- */
+:root {
+    --azul-presencia: #2F6FA3;
+    --azul-hover: #1A4C8B;
+    --azul-glow: rgba(47, 111, 163, 0.4);
+    --blanco: #ffffff;
+    --gris-texto: #aaaaaa;
+    --negro: #000000;
+}
+
+/* --- RESET Y BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body.interna-body {
+    background: radial-gradient(circle at top right, #001226, #000000);
+    background-attachment: fixed;
+    color: var(--blanco);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+.header-interna {
+    position: sticky; top: 0; width: 100%; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 30px 5%; background: rgba(0, 0, 0, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand a { 
+    text-decoration: none; color: var(--blanco); 
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    letter-spacing: 4px; text-transform: uppercase; font-weight: 300;
+}
+
+.nav-principal { display: flex; align-items: center; gap: 18px; }
+.nav-principal a { color: var(--blanco); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+.nav-principal a:hover, .nav-principal a.active { color: var(--azul-presencia) !important; }
+
+/* --- DROPDOWN (Escritorio) --- */
+.nav-item.dropdown { position: relative; display: flex; align-items: center; cursor: pointer; }
+.dropdown-arrow { font-size: 0.6rem; color: var(--azul-presencia); margin-left: 6px; transition: transform 0.3s; }
+
+.dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+    background: var(--negro); border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 240px; padding: 10px 0; opacity: 0; visibility: hidden; transition: 0.3s;
+}
+
+@media (min-width: 901px) {
+    .nav-item.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
+    .nav-item.dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+}
+
+.dropdown-menu a { display: block; padding: 12px 20px; font-size: 0.7rem !important; text-align: left; }
+.dropdown-menu a:hover { background: rgba(47, 111, 163, 0.1); }
+
+/* --- BOTÓN IDIOMA --- */
+.lang-btn {
+    background: transparent; border: 1px solid var(--azul-presencia);
+    color: var(--blanco); padding: 4px 10px; cursor: pointer;
+    font-size: 0.7rem; font-weight: bold; margin-left: 10px; transition: 0.3s;
+}
+
+/* --- CONTENIDO OBRAS --- */
+.container-obras { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; }
+.intro-obras { text-align: center; margin-bottom: 80px; }
+.titulo-pagina { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; letter-spacing: 10px; text-transform: uppercase; color: var(--azul-presencia); text-shadow: 0 0 20px var(--azul-glow); margin-bottom: 20px; }
+.subtitulo-pagina { color: var(--gris-texto); font-size: 1.1rem; letter-spacing: 2px; font-weight: 300; }
+
+.obra-item { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 120px; padding-bottom: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.obra-item.reverse { direction: rtl; }
+.obra-item.reverse .obra-texto { direction: ltr; }
+
+.obra-titulo { font-size: 1.4rem; color: var(--blanco); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+.obra-subtitulo { font-size: 0.9rem; color: var(--azul-presencia); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 400; }
+.obra-descripcion { color: var(--gris-texto); font-size: 0.95rem; line-height: 1.8; margin-bottom: 30px; text-align: justify; }
+.obra-cta { background: rgba(255, 255, 255, 0.03); padding: 20px; border-left: 3px solid var(--azul-presencia); }
+.obra-cta p { font-size: 0.85rem; margin-bottom: 15px; }
+
+.btn-obras { display: inline-block; padding: 10px 25px; border: 1px solid var(--azul-presencia); color: var(--blanco); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; }
+.btn-obras:hover { background: var(--azul-presencia); box-shadow: 0 0 15px var(--azul-glow); }
+
+/* --- VIDEOS --- */
+.obra-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.obra-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.obra-video.local-video { height: auto; padding-bottom: 0; background: #000; }
+.obra-video video { width: 100%; display: block; max-height: 500px; }
+
+
+/* --- RESPONSIVE MÓVIL --- */
+@media (max-width: 900px) {
+    .header-interna { flex-direction: column; padding: 20px 5%; gap: 15px; }
+    .nav-principal { justify-content: center; flex-wrap: wrap; gap: 12px; width: 100%; }
+
+    /* Fix para el menú desplegable en móvil */
+    .dropdown-menu.active { 
+        display: block !important; opacity: 1 !important; visibility: visible !important; 
+        position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+        width: 260px; z-index: 2000;
+    }
+    .dropdown-arrow.active { transform: rotate(180deg); }
+
+    /* Fix para la estructura de las obras */
+    .obra-item, .obra-item.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 80px;
+        direction: ltr; /* Asegura que en móvil nada esté invertido */
+    }
+    .obra-item.reverse .obra-texto { direction: ltr; }
+    .obra-titulo { font-size: 1.2rem; }
+    .obra-descripcion { text-align: justify; }
+}
+
+/* Modificamos el footer para que los elementos se repartan */
+.home-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 5%;
+    right: 5%; /* Añadimos margen derecho */
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between; /* Esto empuja el nombre de Iván a la izquierda y el tuyo a la derecha */
+    align-items: center;
+}
+
+.home-footer p {
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin: 0;
+}
+
+/* Estilos específicos para tu crédito */
+.creador {
+    pointer-events: auto; /* IMPORTANTE: Para que el enlace sea clickable */
+    text-align: right;
+}
+
+.link-creador {
+    color: var(--gris); /* O puedes usar var(--azul-maestro) si quieres que resalte */
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+.link-creador:hover {
+    color: var(--azul-presencia); /* Se ilumina al pasar el ratón */
+    opacity: 1;
+}
+
+/* Ajuste para móviles: uno encima de otro */
+@media (max-width: 900px) {
+    .home-footer {
+        position: relative;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 30px 0;
+        left: 0;
+        width: 100%;
+    }
+    .creador {
+        text-align: center;
+    }
+}

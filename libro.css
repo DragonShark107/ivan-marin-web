@@ -1,0 +1,225 @@
+:root {
+    --azul-contacto: #2F6FA3;
+    --azul-glow: rgba(47, 111, 163, 0.4);
+    --negro: #000000;
+    --blanco: #ffffff;
+    --gris-texto: #aaaaaa;
+    --fuente-texto: 'Lato', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body.interna-body {
+    background: radial-gradient(circle at top right, #001226, #000000);
+    background-attachment: fixed;
+    color: var(--blanco);
+    font-family: var(--fuente-texto);
+}
+
+.header-interna {
+    position: sticky; top: 0; width: 100%; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 5%; background: rgba(0, 0, 0, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand a { 
+    text-decoration: none; color: var(--blanco); 
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    letter-spacing: 4px; text-transform: uppercase; font-weight: 300;
+}
+
+.nav-principal { display: flex; align-items: center; gap: 18px; }
+.nav-item.dropdown { position: relative; display: flex; align-items: center; }
+
+.nav-principal a { 
+    color: var(--blanco); text-decoration: none; font-size: 0.75rem; 
+    text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+}
+
+.nav-principal a:hover, 
+.nav-principal a.active { 
+    color: var(--azul-contacto) !important; 
+}
+
+.dropdown-arrow { font-size: 0.6rem; color: var(--azul-contacto); margin-left: 4px; transition: 0.3s; }
+.dropdown-arrow.active { transform: rotate(180deg); }
+
+.dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+    background: var(--negro); border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 240px; padding: 10px 0; opacity: 0; visibility: hidden; transition: 0.3s;
+}
+
+.dropdown-menu a { display: block; padding: 12px 20px; font-size: 0.7rem !important; }
+.dropdown-menu a:hover { background: rgba(47, 111, 163, 0.15); color: var(--azul-contacto) !important; }
+
+@media (min-width: 901px) {
+    .nav-item.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
+    .nav-item.dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+}
+
+/* --- BOTÓN DE IDIOMA (VERSIÓN CORREGIDA) --- */
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--azul-contacto);
+    color: var(--blanco);
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+
+    /* IMPORTANTE: evita comportamientos raros en móvil */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* SOLO DESKTOP (igual que index) */
+@media (hover: hover) and (pointer: fine) {
+    .lang-btn:hover {
+        background: var(--azul-contacto);
+        color: #fff;
+        box-shadow: 0 0 15px var(--azul-glow);
+        transform: translateY(-2px);
+    }
+}
+
+/* MÓVIL (feedback al tocar) */
+.lang-btn:active {
+    background: var(--azul-contacto);
+    color: #fff;
+    transform: none;
+}
+
+.container-proyectos { padding: 60px 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+
+.img-libro {
+    max-width: 350px; width: 100%; height: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 20px var(--azul-glow);
+    margin-bottom: 20px;
+}
+
+.txt-provisional-gris {
+    font-size: 0.7rem; color: var(--gris-texto); letter-spacing: 2px;
+    text-transform: uppercase; margin-top: 15px; opacity: 0.6;
+}
+
+.texto-unificado-container {
+    padding-top: 40px;
+    margin: 40px auto;
+    border-top: 1px solid #333;
+    width: 100%;
+}
+
+.texto-unificado {
+    font-size: 1.05rem;
+    color: var(--gris-texto);
+    line-height: 1.5;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cita-final {
+    display: block;
+    margin-top: 3rem;
+    font-style: italic;
+    color: var(--blanco);
+}
+
+.home-footer { position: fixed; bottom: 20px; left: 5%; pointer-events: none; }
+.home-footer p { font-family: var(--fuente-texto); font-size: 0.7rem; color: var(--gris-texto); text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
+
+@media (max-width: 900px) {
+    .header-interna {
+        flex-direction: column;
+        padding: 30px 5%;
+        gap: 20px;
+    }
+    
+    .nav-principal {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* RECORTE EXACTO DEL COMPORTAMIENTO DEL INDEX */
+    .dropdown-menu.active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) !important;
+    position: absolute;
+    top: 35px;
+    }
+
+    .dropdown-arrow.active {
+        transform: rotate(180deg) !important;
+    }
+
+    .home-footer {
+        position: relative;
+        text-align: center;
+        left: 0;
+        padding: 40px 0;
+    }
+}
+
+/* Modificamos el footer para que los elementos se repartan */
+.home-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 5%;
+    right: 5%; /* Añadimos margen derecho */
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between; /* Esto empuja el nombre de Iván a la izquierda y el tuyo a la derecha */
+    align-items: center;
+}
+
+.home-footer p {
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin: 0;
+}
+
+/* Estilos específicos para tu crédito */
+.creador {
+    pointer-events: auto; /* IMPORTANTE: Para que el enlace sea clickable */
+    text-align: right;
+}
+
+.link-creador {
+    color: var(--gris); /* O puedes usar var(--azul-maestro) si quieres que resalte */
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+.link-creador:hover {
+    color: var(--azul-contacto); /* Se ilumina al pasar el ratón */
+    opacity: 1;
+}
+
+/* Ajuste para móviles: uno encima de otro */
+@media (max-width: 900px) {
+    .home-footer {
+        position: relative;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 30px 0;
+        left: 0;
+        width: 100%;
+    }
+    .creador {
+        text-align: center;
+    }
+}
