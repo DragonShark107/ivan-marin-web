@@ -276,6 +276,29 @@
 }
 
 
+.hero-text p:has(+ .hero-tagline) {
+    margin-bottom: 1rem;
+}
+
+.hero-text .hero-tagline {
+    font-style: italic;
+    letter-spacing: normal;
+    text-transform: none;
+    line-height: 1.5;
+}
+
+.cta-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+}
+
+.btn-libro {
+    background: var(--azul-elegante);
+    color: var(--blanco);
+}
+
 /* --- SCROLL MARGIN --- */
 .section-service, #acompanamiento, #docencia, #audio, #charlas, #boquillas {
     scroll-margin-top: 100px; 
@@ -343,5 +366,39 @@
 
     .creador {
         text-align: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-text h1 {
+        letter-spacing: 6px;
+    }
+}
+
+@media (max-width: 900px) and (max-height: 680px) {
+    .home-body {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 100dvh;
+        overflow: auto;
+    }
+
+    .home-header, .home-footer {
+        position: relative;
+    }
+
+    .home-main, .hero-minimal {
+        display: flex;
+        flex: 1;
+    }
+
+    .hero-minimal {
+        height: auto;
+    }
+
+    .home-footer {
+        bottom: auto;
+        padding: 15px 0;
     }
 }
