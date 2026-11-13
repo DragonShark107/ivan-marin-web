@@ -1,13 +1,43 @@
 <!DOCTYPE html>
+<!-- Actualizacion de la seccion Libro - rama de pruebas 2026 -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libro | Iván Marín García</title>
+    <title>Vibrar Más Alto | Iván Marín García</title>
+    <meta name="description" content="Vibrar Más Alto, el libro de Iván Marín García. Descubre las ediciones digitales en español e inglés y los próximos formatos impresos.">
     <link rel="icon" type="image/x-icon" href="Imagenes/Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="libro.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .book-edition { margin: 1.5rem auto 0; }
+        .book-edition h2, .book-edition strong { color: var(--blanco); }
+        .book-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+        .book-edition h2 { font-size: 1.15rem; line-height: 1.35; letter-spacing: .08em; scroll-margin-top: 11rem; }
+        .book-edition p { margin-block: 1em; }
+        .book-edition > .book-body-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+        .book-question, .book-jump { text-align: center; }
+        .book-question { font-size: clamp(1.2rem, 3vw, 1.45rem); line-height: 1.45; text-wrap: balance; }
+        .book-edition .book-jump { margin-bottom: 2rem; }
+        .book-section { border-top: 1px solid #333; margin-top: 2.5rem; padding-top: 1.5rem; }
+        .book-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+        .book-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .55rem 1rem; border: 1px solid var(--azul-contacto); color: var(--blanco); font-size: .95rem; text-align: center; text-decoration: none; }
+        .book-button:hover, .book-primary { background: var(--azul-contacto); }
+        .book-primary:hover { background: #1A4C8B; }
+        .book-button:focus-visible, .lang-btn:focus-visible { outline: 2px solid var(--blanco); outline-offset: 4px; }
+        @media (max-width: 900px) {
+            .book-question br { display: none; }
+        }
+        @media (max-width: 540px) {
+            .container-proyectos { padding-top: 32px; }
+            .img-libro { max-width: 235px; }
+            .book-actions .book-button { flex: 1 1 100%; }
+        }
+    </style>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -47,16 +77,63 @@
 
     <main class="container-proyectos">
         <section class="portada-container">
-            <img src="Imagenes/Portada libro.jpeg" alt="Portada Libro" class="img-libro">
-            <p class="txt-provisional-gris" data-es="Portada conceptual — provisional" data-en="Conceptual cover — provisional">Portada conceptual — provisional</p>
+  <img id="portada-libro" src="Imagenes/Portada_Vibrar_Mas_Alto.png" alt="Portada de Vibrar Más Alto" class="img-libro"> 
         </section>
 
-        <section class="proyecto-content">
-            <div class="texto-unificado-container">
-                <div class="texto-unificado" id="contenedor-texto">
-                    </div>
-            </div>
-        </section>
+        <article lang="es" class="book-edition texto-unificado">
+            <h1 class="book-title">Vibrar Más Alto. La música invisible de tu vida</h1>
+            <p class="book-question"><strong>¿Y si lo que puede transformar tu vida no es lo que haces,<br> sino desde dónde lo haces?</strong></p>
+            <p class="book-jump"><a class="book-button" href="#compra-es">DESCUBRE EL LIBRO</a></p>
+            <p class="book-body-text">A veces nos esforzamos por mejorar, alcanzar nuevas metas o encontrar fuera lo que sentimos que nos falta. Pero ¿cuánto cambiaría nuestra vida si aprendiéramos a relacionarnos de otra manera con nosotros mismos?</p>
+            <p class="book-body-text"><em>Vibrar Más Alto</em> es una invitación a descubrir el estado interior desde el que afrontamos nuestros miedos, nos relacionamos con los demás y damos lo mejor de nosotros mismos.</p>
+            <p class="book-body-text">A través de experiencias personales y reflexiones nacidas de una vida dedicada a la música, Iván Marín García explora cómo la presencia, la conciencia y la coherencia pueden transformar nuestra manera de aprender, crear y vivir</p>
+            <p class="book-body-text">Un recorrido que dialoga también con conocimientos de neurociencia y con investigaciones sobre coherencia cardíaca, como las desarrolladas por el HeartMath Institute.</p>
+            <p><strong>No necesitas ser músico para encontrar tu propia voz.</strong></p>
+            <p><em>Quizá no se trate de convertirte en alguien diferente, sino de descubrir todo lo que ya hay en ti.</em></p>
+            <p class="book-body-text">Escrito por Iván Marín García, clarinetista profesional con más de tres décadas de experiencia artística en España y Estados Unidos.</p>
+            <section class="book-section" aria-labelledby="compra-es">
+                <h2 id="compra-es">DESCUBRE EL LIBRO</h2>
+                <div class="book-actions">
+                    <a class="book-button book-primary" href="https://www.amazon.es/dp/B0HQ2B3TDK" target="_blank" rel="noopener">Comprar eBook en español</a>
+                    <a class="book-button" href="https://www.amazon.es/dp/B0HQPRQY8W" target="_blank" rel="noopener">Comprar eBook en inglés</a>
+                </div>
+                <p><em>Disponible en formato digital. Ediciones en tapa blanda y tapa dura próximamente.</em></p>
+            </section>
+            <section class="book-section" aria-labelledby="firma-es">
+                <h2 id="firma-es">UN LIBRO. UNA DEDICATORIA PERSONAL.</h2>
+                <p>Si deseas recibir un ejemplar de <em>Vibrar Más Alto</em> firmado y dedicado personalmente, puedes escribirme directamente a través de la sección de contacto de esta web.</p>
+                <p><strong>Será un placer dedicártelo personalmente.</strong></p>
+                <p><em>Ejemplares firmados disponibles próximamente. Envíos exclusivamente dentro de España.</em></p>
+                <a class="book-button" href="contacto.html">Contactar con el autor</a>
+            </section>
+        </article>
+        <article lang="en" class="book-edition texto-unificado" hidden>
+            <h1 class="book-title">Vibrate Higher. The Invisible Music of Your Life</h1>
+            <p class="book-question"><strong>What if the key to transforming your life isn't what you do,<br> but the place within you from which you do it?</strong></p>
+            <p class="book-jump"><a class="book-button" href="#compra-en">DISCOVER THE BOOK</a></p>
+            <p class="book-body-text">We spend so much of our lives trying to improve, achieve more, or find outside ourselves what we feel is missing. But how much could change if we learned to relate to ourselves differently?</p>
+            <p class="book-body-text"><em>Vibrate Higher</em> invites you to discover the inner state from which we face our fears, connect with others, and bring out the best in ourselves.</p>
+            <p class="book-body-text">Drawing on personal experiences and reflections from a life devoted to music, Iván Marín García explores how presence, awareness, and inner coherence can transform the way we learn, create, and live.</p>
+            <p class="book-body-text">The book also draws on insights from neuroscience and research into heart coherence, including work by the HeartMath Institute.</p>
+            <p><strong>You don't have to be a musician to find your own voice.</strong></p>
+            <p><em>Perhaps it's not about becoming someone different, but discovering what is already within you.</em></p>
+            <p class="book-body-text">Written by Iván Marín García, a professional clarinetist with more than three decades of artistic experience in Spain and the United States.</p>
+            <section class="book-section" aria-labelledby="compra-en">
+                <h2 id="compra-en">DISCOVER THE BOOK</h2>
+                <div class="book-actions">
+                    <a class="book-button book-primary" href="https://www.amazon.com/dp/B0HQPRQY8W" target="_blank" rel="noopener">Buy the English eBook</a>
+                    <a class="book-button" href="https://www.amazon.es/dp/B0HQ2B3TDK" target="_blank" rel="noopener">Buy the Spanish eBook</a>
+                </div>
+                <p><em>Available now as an eBook. Paperback and hardcover editions coming soon.</em></p>
+            </section>
+            <section class="book-section" aria-labelledby="firma-en">
+                <h2 id="firma-en">A BOOK. A PERSONAL DEDICATION.</h2>
+                <p>If you would like a personally signed and dedicated copy of <em>Vibrate Higher</em>, you can contact me directly through this website.</p>
+                <p><strong>It would be a pleasure to write a personal dedication for you.</strong></p>
+                <p><em>Signed copies coming soon. Shipping within Spain only.</em></p>
+                <a class="book-button" href="contacto.html">Contact the author</a>
+            </section>
+        </article>
     </main>
 
     <footer class="home-footer">
@@ -69,75 +146,31 @@
 
     <script>
     const langSwitch = document.getElementById('lang-switch');
-    let currentLang = localStorage.getItem('prefLang') || 'es';
+    let currentLang = localStorage.getItem('prefLang') === 'en' ? 'en' : 'es';
 
     const updateLanguage = (lang) => {
-        const contenedor = document.getElementById('contenedor-texto');
-        
-        const textoEs = `
-            Hay una música que no se escucha, pero sostiene todo lo que somos.<br><br>
-            Una vibración interna desde la que pensamos, creamos, enseñamos, lideramos y nos relacionamos.<br><br>
-            Este libro nace de una forma de habitar la vida — una actitud, una confianza, un mecanismo interno que convierte cada experiencia en aprendizaje y cada intención en resultado. No porque las circunstancias fueran siempre favorables, sino porque había algo operando desde dentro que siempre encontraba el camino.<br><br>
-            Durante décadas lo viví sin nombrarlo. Fue la mirada de un amigo la que lo hizo visible: <i>«Todo lo que tocas llega a una profundidad diferente. ¿Sabes por qué?»</i><br><br>
-            Esa pregunta se convirtió en este libro.<br><br>
-            VIBRAR MÁS ALTO explora ese mecanismo: presencia, coherencia interna, la calidad vibracional que determina cada acto humano. Música, conciencia, cuerpo, ciencia y práctica viva — una mirada directa a lo que realmente mueve la vida desde dentro.<br><br>
-            Hay momentos en la vida en los que no buscamos más información.<br>
-            Buscamos frecuencia.<br>
-            Buscamos recordar algo que ya sabemos, pero que el ruido del mundo nos hizo olvidar.<br><br>
-            No aprendes algo nuevo.<br>
-            Recuerdas quién siempre fuiste.<br>
-            Vislumbras —con suavidad y sin drama— la mecánica del juego que estamos viviendo, y desde esa comprensión, algo cambia para siempre.<br><br>
-            Ya no buscas.<br>
-            Te detienes.<br>
-            Te reconectas.<br><br>
-            Y descubre que todo lo que necesitabas estaba aquí, en este momento, esperando que dejaras de correr para verlo.<br><br>
-            La maquinaria ya está dentro de ti.<br>
-            No hay nada que adquirir.<br>
-            Solo algo que recordar — y un momento en el que hacerlo: este.<br><br>
-            No es autoayuda.<br>
-            No es espiritualidad convencional.<br>
-            Tiene raíces en la neurociencia, la física cuántica y la investigación del HeartMath Institute — y se siente en el cuerpo antes de entenderse con la mente.<br>
-            No te añade nada. Te devuelve todo.<br><br></center>
-            <span class="cita-final"><center>«La vibración más alta no se alcanza. Se recuerda».</center></span>
-        `;
+        const isSpanish = lang === 'es';
+        const portada = document.getElementById('portada-libro');
 
-        const textoEn = `
-           There is a music you cannot hear, yet it holds everything we are.<br><br>
-            An inner vibration from which we think, create, teach, lead, and relate.<br><br>
-            This book was born from a way of inhabiting life — an attitude, a trust, an inner mechanism that turns every experience into learning and every intention into outcome. Not because circumstances were always favorable, but because something within was always finding the way.<br><br>
-            For decades I lived it without naming it. It was a friend's observation that made it visible: <i>“Everything you touch reaches a different depth. Do you know why?”</i><br><br>
-            That question became this book.<br><br>
-            VIBRATE HIGHER explores that mechanism: presence, inner coherence, the vibrational quality that shapes every human act. Music, consciousness, body, science, and lived practice — a direct look at what truly moves life from within.<br><br>
-            There are moments in life when we are not looking for more information.<br>
-            We are looking for frequency.<br>
-            We are looking to remember something we already know, but that the noise of the world made us forget.<br><br>
-            You do not learn something new.<br>
-            You remember who you have always been.<br>
-            You glimpse — gently, without drama — the mechanics of the game we are living, and from that understanding, something shifts forever.<br><br>
-            You stop searching.<br>
-            You pause.<br>
-            You reconnect.<br><br>
-            And you discover that everything you needed was already here, in this moment, waiting for you to stop running long enough to see it.<br><br>
-            The machinery is already within you.<br>
-            There is nothing to acquire.<br>
-            Only something to remember — and a moment in which to do it: this one.<br><br>
-            It is not self-help.<br>
-            It is not conventional spirituality.<br>
-            It has roots in neuroscience, quantum physics, and HeartMath Institute research — and it is felt in the body before it is understood by the mind.<br>
-            It adds nothing to you. It gives everything back.<br><br></center>
-            <span class="cita-final"><center>“The highest vibration is not reached. It is remembered.”</center></span>
-        `;
+        portada.src = isSpanish
+            ? 'Imagenes/Portada_Vibrar_Mas_Alto.png'
+            : 'Imagenes/Portada_Vibrate_Higher.png';
+        portada.alt = isSpanish ? 'Portada de Vibrar Más Alto' : 'Cover of Vibrate Higher';
 
-        contenedor.innerHTML = (lang === 'es') ? textoEs : textoEn;
-        
-        document.querySelectorAll('[data-es]').forEach(el => {
-            if(el.id !== 'contenedor-texto') {
-                el.innerHTML = el.getAttribute(`data-${lang}`);
-            }
+        document.querySelectorAll('.book-edition').forEach(edition => {
+            edition.hidden = edition.lang !== lang;
+        });
+        document.querySelectorAll('[data-es]').forEach(element => {
+            element.textContent = element.dataset[lang];
         });
 
-        document.title = (lang === 'es') ? "Libro | Iván Marín García" : "Book | Iván Marín García";
-        langSwitch.innerText = lang === 'es' ? 'EN' : 'ES';
+        document.documentElement.lang = lang;
+        document.title = isSpanish
+            ? 'Vibrar Más Alto | Iván Marín García'
+            : 'Vibrate Higher | Iván Marín García';
+        langSwitch.textContent = isSpanish ? 'EN' : 'ES';
+        langSwitch.lang = isSpanish ? 'en' : 'es';
+        langSwitch.setAttribute('aria-label', isSpanish ? 'Read in English' : 'Leer en español');
         localStorage.setItem('prefLang', lang);
     };
 
